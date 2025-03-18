@@ -1,3 +1,5 @@
+% this file is mostly taken from Tavrov's bachelor thesis class
+
 \ProvidesClass{information_retrieval_lab}[2025/02/06 v0.1 -- Пояснювальна записка до лабораторної роботи з методів організації пошуку інформації]
 
 \LoadClass[a4paper,14pt,ukrainian,oneside]{extreport}
@@ -14,9 +16,9 @@
 \setotherlanguage{english}  % Set other language to English
 
 \defaultfontfeatures{Ligatures=TeX}  % Enable standard TeX ligatures
-\setmainfont{FreeSerif}  % Set main font to Free Serif instead of Times New Roman
-\newfontfamily\cyrillicfont{FreeSerif}[Script=Cyrillic]  % Specify font for Cyrillic script
-\newfontfamily\cyrillicfonttt{FreeMono}
+\setmainfont{Times New Roman}  % Set main font to Free Serif instead of Times New Roman
+\newfontfamily\cyrillicfont{Times New Roman}[Script=Cyrillic]  % Specify font for Cyrillic script
+\newfontfamily\cyrillicfonttt{Courier New}
 
 \RequirePackage{upgreek}                                % пакет для прямих грецьких літер
 \RequirePackage{textcomp}                               % потрібні символи в режимі математичних формул
@@ -74,12 +76,15 @@
 \urlstyle{same}         % текст гіперпосилань буде того ж шрифту, що й основний текст
 
 % стиль сторінки для позиції номеру сторінки
+\newcommand{\headerfooterfont}{\cyrillicfont\selectfont\normalsize}
+% стиль сторінки для позиції номеру сторінки
 \fancypagestyle{plain}{
     \fancyhf{}
-    \rhead{\thepage}
+    \rfoot{\headerfooterfont \thepage}
             \renewcommand{\headrulewidth}{0pt}
             \renewcommand{\footrulewidth}{0pt}
 }
+
 
 % команди для заборони використання перенесень
 \tolerance=1
@@ -89,4 +94,19 @@
 
 \setlength{\parindent}{1.25cm} % задаємо відступ першого рядка абзацу (5 знаків, або 1,25 см)
 
+\usepackage{xcolor}
+\lstdefinestyle{minimalist}{
+    basicstyle=\ttfamily\scriptsize,
+    commentstyle=\color{gray},
+    keywordstyle=\color{black}\bfseries,
+    stringstyle=\color{gray},
+    numberstyle=\tiny\color{black},
+    backgroundcolor=\color{white},
+    breaklines=true,
+    keepspaces=true,
+    numbers=none,
+    showstringspaces=false,
+    tabsize=2
+}
 
+\usepackage{float}
